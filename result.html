@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Recommendations</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Recommendations for "{{movie}}"</h1>
+
+{% if error %}
+
+<h2>{{error}}</h2>
+
+{% else %}
+
+{% for item in results %}
+
+<div class="card">
+
+<h2>{{item.title}}</h2>
+
+<p><b>Genres :</b> {{item.genres}}</p>
+
+<p><b>Rating :</b> {{item.rating}}</p>
+
+<p><b>Popularity :</b> {{item.popularity}}</p>
+
+<p>{{item.overview}}</p>
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<a href="/">← Search Again</a>
+
+</div>
+
+</body>
+
+</html>
